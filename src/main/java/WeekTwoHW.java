@@ -46,7 +46,7 @@ public class WeekTwoHW {
                     }
                 }
                 System.out.println("[ " + collType + " (으)로 저장된 " + recipeTitle + " ]");
-                Iterator setIterator = setContents.iterator();
+                Iterator<String> setIterator = setContents.iterator();
                 for (int i = 0; i < setContents.size(); i++) {
                     String contentsForm = String.format("%d. %s", i + 1, setIterator.next());
                     System.out.println(contentsForm);
