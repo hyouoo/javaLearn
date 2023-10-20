@@ -1,6 +1,8 @@
 package AlgoStudy;
 
-import java.util.Arrays;
+import java.util.stream.IntStream;
+
+//평균 구하기
 // 문제 설명
 //        정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.
 // 제한사항
@@ -14,11 +16,16 @@ public class Q2 {
     public static void main(String[] args) {
         int[] ints = {1, 2, 3, 4};
         System.out.println(Solution2.solution(ints));
+        System.out.println(IntStream.of(ints).average().orElse(0));
     }
-}
 
-class Solution2 {
-    public static double solution (int[] ints) {
-        return Arrays.stream(ints).average().orElse(0);
+    private static class Solution2 {
+        private static double solution(int[] ints) {
+            double result = 0;
+            for (int n : ints) {
+                result += n;
+            }
+            return result / ints.length;
+        }
     }
 }

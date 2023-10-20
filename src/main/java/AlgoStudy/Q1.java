@@ -1,6 +1,6 @@
 package AlgoStudy;
 
-import java.util.Scanner;
+// 짝수와 홀수
 // 문제 설명
 //      정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.
 // 제한 조건
@@ -12,13 +12,13 @@ import java.util.Scanner;
 //      4	"Even"
 public class Q1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
+        int num = 3;
         System.out.println(Solution.solution(num));
     }
-}
-class Solution {
-    public static String solution(int num) {
-        return num % 2 == 0 ? "Even" : "Odd";
+
+    private static class Solution {
+        private static String solution(int num) {
+            return num % 2 == 0 ? "Even" : "Odd";
+        }
     }
 }

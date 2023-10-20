@@ -2,6 +2,7 @@ package AlgoStudy;
 
 import java.util.stream.IntStream;
 
+//약수의 합
 //문제 설명
 //        정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
 //제한 사항
@@ -14,8 +15,13 @@ public class Q4 {
     public static void main(String[] args) {
         int num = 25;
         System.out.println(Solution4.solution(num));
-        System.out.println(IntStream.range(1, (int) Math.sqrt(num)+1)
-                .filter(i -> num % i == 0));
+        System.out.println(IntStream.rangeClosed(1, num / 2)
+                .filter(i -> num % i == 0)
+                .sum() + num);
+        System.out.println(IntStream.rangeClosed(1, (int) Math.sqrt(num))
+                .filter(i -> num % i == 0)
+                .map(i -> i == num / i ? i : i + num / i)
+                .sum());
     }
 
     private static class Solution4 {
