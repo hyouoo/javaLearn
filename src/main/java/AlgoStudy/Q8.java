@@ -13,24 +13,25 @@ package AlgoStudy;
 //        str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력되는 경우는 없습니다.
 public class Q8 {
     public static void main(String[] args) {
-        String string = "1234";
+        String string = "+1";
         System.out.println(Solution.solution(string));
         System.out.println(Integer.parseInt(string));
     }
 
     private static class Solution {
-        private static int solution(String string) {
+        private static int solution(String s) {
             int result = 0;
             boolean negative = false;
-            if (string.charAt(0) == '-') {
+            int startIndex = 0;
+            if (s.charAt(0) == '-') {
                 negative = true;
+                startIndex = 1;
+            } else if (s.charAt(0) == '+') {
+                startIndex = 1;
             }
-            for (int i = 0; i < string.length(); i++) {
-                result = result * 10 + (string.charAt(i) - 48);
+            for (int i = startIndex; i < s.length(); i++) {
+                result = result * 10 + (s.charAt(i) - 48);
             }
-
-            //string을 char로 iteration하면서 int로 변환
-
             return negative ? -result : result;
         }
     }
