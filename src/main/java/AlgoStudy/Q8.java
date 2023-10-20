@@ -1,7 +1,5 @@
 package AlgoStudy;
 
-import java.util.Arrays;
-
 // 문자열을 정수로 바꾸기
 // 문제 설명
 //        문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
@@ -16,11 +14,11 @@ import java.util.Arrays;
 public class Q8 {
     public static void main(String[] args) {
         String string = "1234";
-        System.out.println(Solution8.solution(string));
+        System.out.println(Solution.solution(string));
         System.out.println(Integer.parseInt(string));
     }
 
-    private static class Solution8 {
+    private static class Solution {
         private static int solution(String string) {
             int result = 0;
             boolean negative = false;
