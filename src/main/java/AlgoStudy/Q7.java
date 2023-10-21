@@ -21,10 +21,10 @@ public class Q7 {
     }
 
     private static class Solution7 {
-        private static int[] solution(long n) {
-            int[] result = new int[(int) Math.log10(n) + 1];
+        private static long[] solution(long n) {
+            long[] result = new long[Long.toString(n).length()];
             for (int i = 0; i < result.length; i++) {
-                result[i] = (int) (n % 10);
+                result[i] = n % 10;
                 n /= 10;
             }
             return result;
