@@ -6,13 +6,12 @@ public class Parser {
 
     private final Calculator calculator = new Calculator();
 
-    public Parser parseFirstNum(String firstInput) throws BadInputException {
+    public void parseFirstNum(String firstInput) throws BadInputException {
         // 구현 1.
         if (!firstInput.matches(NUMBER_REG)) {
             throw new BadInputException("정수");
         }
         this.calculator.setFirstNumber(Integer.parseInt(firstInput));
-        return this;
     }
 
     public void parseSecondNum(String secondInput) throws BadInputException {
