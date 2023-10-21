@@ -29,6 +29,7 @@ public class Q28 {
             }
             System.out.println();
         }
+        System.out.println();
         Solution.solution(a, b);
     }
 
@@ -37,7 +38,7 @@ public class Q28 {
             StringBuilder str = new StringBuilder();
             str.append("*".repeat(a));
             for (int i = 0; i < b; i++) {
-                System.out.println(str.toString());
+                System.out.println(str);
             }
         }
     }

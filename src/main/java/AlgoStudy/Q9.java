@@ -21,7 +21,6 @@ public class Q9 {
     private static class Solution {
         private static long solution(long n) {
             int sqrtToInt = (int) Math.sqrt(n);
-            double x = Math.sqrt(n);
             if (Math.sqrt(n) - sqrtToInt == 0) {
                 return (long) Math.pow(sqrtToInt + 1, 2);
             }

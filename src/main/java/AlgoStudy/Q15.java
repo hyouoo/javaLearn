@@ -40,7 +40,7 @@ public class Q15 {
         }
 
         private static int[] solution2(int[] arr, int divisor) {
-            int[] result = Arrays.stream(arr).filter(num -> num % 5 == 0).toArray();
+            int[] result = Arrays.stream(arr).filter(num -> num % divisor == 0).toArray();
             if (result.length == 0) {
                 result = new int[] {-1};
             }

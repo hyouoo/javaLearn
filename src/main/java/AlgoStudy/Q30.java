@@ -43,12 +43,12 @@ public class Q30 {
         }
 
         private static int solution3(int n) {
-            String list = "";
+            StringBuilder list = new StringBuilder();
             while (n > 0) {
-                list += n % 3;
+                list.append(n % 3);
                 n /= 3;
             }
-            return Integer.parseInt(list, 3); // parseInt(String, int) 3진수인 list를 10진수로 변환
+            return Integer.parseInt(list.toString(), 3); // parseInt(String, int) 3진수인 list를 10진수로 변환
         }
     }
 }

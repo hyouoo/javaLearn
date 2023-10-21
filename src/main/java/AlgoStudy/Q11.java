@@ -1,7 +1,6 @@
 package AlgoStudy;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 // 하샤드 수
 // 문제 설명

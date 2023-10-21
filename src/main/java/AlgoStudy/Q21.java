@@ -19,11 +19,11 @@ public class Q21 {
 
     private static class Solution {
         private static String solution(int n) {
-            String result = "";
+            StringBuilder result = new StringBuilder();
             for (int i = 0; i < n; i++) {
-                result += i % 2 == 0 ? "수" : "박";
+                result.append(i % 2 == 0 ? "수" : "박");
             }
-            return result;
+            return result.toString();
         }
 
         private static String solution2(int n) {

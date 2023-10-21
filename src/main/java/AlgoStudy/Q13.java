@@ -28,7 +28,7 @@ public class Q13 {
 
     private static class Solution {
         private static int solution(int n) {
-            long num = (long) n;
+            long num = n;
             int count = 0;
             while (num > 1 && count > -1) {
                 count = count == 500 ? -1 : count + 1;
