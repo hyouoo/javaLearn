@@ -18,14 +18,17 @@ package AlgoStudy;
 //        "a B z"	4	    "e F d"
 public class Q35 {
     public static void main(String[] args) {
+        String s = "AB";
         int n = 1;
-        System.out.println(Solution.solution(n));
+        System.out.println(Solution.solution(s, n));
     }
 
     private static class Solution {
-        private static int solution(int n) {
+        private static String solution(String s, int n) {
+            String capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            String alphabet = "abccdefghijklmnopqrstuvwxyz";
 
-            return n;
+            return s;
         }
     }
 }

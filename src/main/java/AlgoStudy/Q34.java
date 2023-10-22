@@ -1,5 +1,7 @@
 package AlgoStudy;
 
+import java.util.Arrays;
+
 // 최소직사각형
 // 문제 설명
 //        명함 지갑을 만드는 회사에서 지갑의 크기를 정하려고 합니다. 다양한 모양과 크기의 명함들을 모두 수납할 수 있으면서,
@@ -27,14 +29,49 @@ package AlgoStudy;
 //        [[14, 4], [19, 6], [6, 16], [18, 7], [7, 11]]	    133
 public class Q34 {
     public static void main(String[] args) {
-        int n = 1;
-        System.out.println(Solution.solution(n));
+        int[][] sizes = {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
+        System.out.println(Solution.solution(sizes));
+        System.out.println(Solution.solution2(sizes));
+        System.out.println(Solution.solution3(sizes));
     }
 
     private static class Solution {
-        private static int solution(int n) {
+        private static int solution(int[][] sizes) {
+            int[] min = new int[sizes.length];
+            int[] max = new int[sizes.length];
 
-            return n;
+            for (int i = 0; i < sizes.length; i++) {
+                Arrays.sort(sizes[i]);
+                min[i] = sizes[i][0];
+                max[i] = sizes[i][1];
+            }
+
+            int maxOfMax = max[0];
+            int maxOfMin = min[0];
+            for (int i = 0; i < min.length; i++) {
+                if (maxOfMax < max[i]) {
+                    maxOfMax = max[i];
+                }
+                if (maxOfMin < min[i]) {
+                    maxOfMin = min[i];
+                }
+            }
+            return maxOfMax * maxOfMin;
+        }
+
+        private static int solution2(int[][] sizes) {
+            int width = 0, height = 0;
+            for (int[] card : sizes) {
+                width = Math.max(width, Math.max(card[0], card[1]));
+                height = Math.max(height, Math.min(card[0], card[1]));
+            }
+            return width * height;
+        }
+
+        private static int solution3(int[][] sizes) {
+            return Arrays.stream(sizes).reduce((a, b) -> new int[]{
+                    Math.max(Math.max(a[0], a[1]), Math.max(b[0], b[1])), Math.max(Math.min(a[0], a[1]), Math.min(b[0], b[1]))
+            }).map(it -> it[0] * it[1]).orElse(0);
         }
     }
 }
