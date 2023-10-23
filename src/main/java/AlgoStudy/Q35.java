@@ -18,17 +18,56 @@ package AlgoStudy;
 //        "a B z"	4	    "e F d"
 public class Q35 {
     public static void main(String[] args) {
-        String s = "AB";
-        int n = 1;
+        String s = "a B Z";
+        int n = 4;
         System.out.println(Solution.solution(s, n));
+        System.out.println(Solution.solution2(s, n));
+        System.out.println(Solution.solution3(s, n));
     }
 
     private static class Solution {
         private static String solution(String s, int n) {
-            String capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            String alphabet = "abccdefghijklmnopqrstuvwxyz";
+            StringBuilder result = new StringBuilder();
+            String alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+            String capital = alphabet.toUpperCase();
+            // s의 요소를 alphabet에서 찾아보고 n만큼 더해서 반환, but z 다음에는 다시 a가 와야 됨
+            for (char chr : s.toCharArray()) {
+                if (chr == ' ') {
+                    result.append(' ');
+                } else if (alphabet.contains(String.valueOf(chr))) {
+                    result.append(alphabet.charAt(alphabet.indexOf(chr) + n));
+                } else if (capital.contains(String.valueOf(chr))) {
+                    result.append(capital.charAt(capital.indexOf(chr) + n));
+                }
+            }
+            return result.toString();
+        }
 
-            return s;
+        private static String solution2(String s, int n) {
+            StringBuilder result = new StringBuilder();
+            for (char chr : s.toCharArray()) {
+                if (chr == ' ') {
+                    result.append(' ');
+                } else {
+                    char base = Character.isUpperCase(chr) ? 'A' : 'a';
+                    char shiftedChar = (char) ((chr + n - base) % 26 + base);
+                    result.append(shiftedChar);
+                }
+            }
+            return result.toString();
+        }
+
+        private static String solution3(String s, int n) {
+            return s.chars().mapToObj(chr -> {
+                        if (chr == ' ') {
+                            return ' ';
+                        } else {
+                            char base = Character.isUpperCase(chr) ? 'A' : 'a';
+                            return (char) ((chr + n - base) % 26 + base);
+                        }
+                    })
+                    .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                    .toString();
         }
     }
 }
