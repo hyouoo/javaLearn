@@ -6,10 +6,8 @@ public class Template {
         System.out.println(Solution.solution(n));
     }
 
-    private static class Solution {
-        private static int solution(int n) {
+    private static int solution(int n) {
 
-            return n;
-        }
+        return n;
     }
 }
