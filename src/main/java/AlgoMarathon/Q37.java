@@ -28,6 +28,7 @@ public class Q37 {
         // n번째 index의 값을 추출, 오름차순으로 정렬 char[]생성?
         // linkedHashMap으로 데이터 생성해서 key값을 오름차순으로 정렬한 후에 반환? -> key값이 같은 경우 무용지물
         //
+        StringBuilder sb = new StringBuilder();
         return strings;
     }
 }
