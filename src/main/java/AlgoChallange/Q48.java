@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 소수 만들기
 // 문제 설명

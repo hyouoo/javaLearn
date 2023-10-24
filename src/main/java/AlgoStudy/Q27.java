@@ -17,30 +17,28 @@ public class Q27 {
     public static void main(String[] args) {
         int[][] arr1 = {{1, 2}, {2, 3}};
         int[][] arr2 = {{3, 4}, {5, 6}};
-        System.out.println(Arrays.toString(Solution.solution(arr1, arr2)));
-        System.out.println(Arrays.toString(Solution.solution2(arr1, arr2)));
+        System.out.println(Arrays.toString(solution(arr1, arr2)));
+        System.out.println(Arrays.toString(solution2(arr1, arr2)));
     }
 
-    private static class Solution {
-        private static int[][] solution(int[][] arr1, int[][] arr2) {
-            int[][] result = new int[arr1.length][arr1[0].length];
-            for (int i = 0; i < arr1.length; i++) {
-                for (int j = 0; j < arr1[0].length; j++) {
-                    result[i][j] = arr1[i][j] + arr2[i][j];
-                }
+    private static int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] result = new int[arr1.length][arr1[0].length];
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                result[i][j] = arr1[i][j] + arr2[i][j];
             }
-            return result;
         }
+        return result;
+    }
 
-        private static int[][] solution2(int[][] arr1, int[][] arr2) {
-            if (arr1.length != arr2.length || arr1[0].length != arr2[0].length) {
-                throw new IllegalArgumentException("Input arrays must have the same dimensions.");
-            }
-            return IntStream.range(0, arr1.length)
-                    .mapToObj(i -> IntStream.range(0, arr1[0].length)
-                            .map(j -> arr1[i][j] + arr2[i][j])
-                            .toArray())
-                    .toArray(int[][]::new);
+    private static int[][] solution2(int[][] arr1, int[][] arr2) {
+        if (arr1.length != arr2.length || arr1[0].length != arr2[0].length) {
+            throw new IllegalArgumentException("Input arrays must have the same dimensions.");
         }
+        return IntStream.range(0, arr1.length)
+                .mapToObj(i -> IntStream.range(0, arr1[0].length)
+                        .map(j -> arr1[i][j] + arr2[i][j])
+                        .toArray())
+                .toArray(int[][]::new);
     }
 }

@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 콜라 문제
 //        콜라 빈 병 2개를 가져다 주면 콜라 1병을 주는 마트가 있다. 빈 병 20개를 가져다주면 몇 병을 받을 수 있는가?

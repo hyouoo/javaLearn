@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 덧칠하기
 // 문제 설명

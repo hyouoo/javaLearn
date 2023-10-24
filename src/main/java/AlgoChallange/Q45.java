@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 카드 뭉치
 // 문제 설명

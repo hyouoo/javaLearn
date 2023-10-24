@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 명예의 전당 (1)
 // 문제 설명

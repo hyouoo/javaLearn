@@ -15,20 +15,18 @@ public class Q23 {
     public static void main(String[] args) {
         int left = 13;
         int right = 17;
-        System.out.println(Solution.solution(left, right));
+        System.out.println(solution(left, right));
         System.out.println(IntStream.rangeClosed(left, right)
                 .map(index -> index % Math.sqrt(index) == 0 ? -index : index)
                 .sum());
     }
 
-    private static class Solution {
-        private static int solution(int left, int right) {
-            int result = 0;
-            for (int i = left; i <= right; i++) {
-                result = Math.sqrt(i) - (int) Math.sqrt(i) == 0 ? result - i : result + i;
-                // i % Math.sqrt(i) == 0
-            }
-            return result;
+    private static int solution(int left, int right) {
+        int result = 0;
+        for (int i = left; i <= right; i++) {
+            result = Math.sqrt(i) - (int) Math.sqrt(i) == 0 ? result - i : result + i;
+            // i % Math.sqrt(i) == 0
         }
+        return result;
     }
 }

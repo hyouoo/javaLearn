@@ -19,22 +19,20 @@ public class Q25 {
         int price = 3;
         int money = 20;
         int count = 4;
-        System.out.println(Solution.solution(price, money, count));
-        System.out.println(Solution.solution2(price, money, count));
+        System.out.println(solution(price, money, count));
+        System.out.println(solution2(price, money, count));
     }
 
-    private static class Solution {
-        private static long solution(int price, int money, int count) {
-            long totalPrice = 0;
-            for (int i = 1; i <= count; i++) {
-                totalPrice += (long) price * i;
-            }
-            return totalPrice > money ? totalPrice - money : 0;
+    private static long solution(int price, int money, int count) {
+        long totalPrice = 0;
+        for (int i = 1; i <= count; i++) {
+            totalPrice += (long) price * i;
         }
+        return totalPrice > money ? totalPrice - money : 0;
+    }
 
-        private static long solution2(int price, int money, int count) {
-            long totalPrice = LongStream.rangeClosed(1, count).map(i -> (long) price * i).sum();
-            return Long.max(totalPrice - money, 0);
-        }
+    private static long solution2(int price, int money, int count) {
+        long totalPrice = LongStream.rangeClosed(1, count).map(i -> (long) price * i).sum();
+        return Long.max(totalPrice - money, 0);
     }
 }

@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 import java.util.Arrays;
 

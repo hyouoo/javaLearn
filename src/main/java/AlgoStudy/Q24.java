@@ -17,29 +17,27 @@ import java.util.stream.Stream;
 public class Q24 {
     public static void main(String[] args) {
         String s = "Zbcdefg";
-        System.out.println(Solution.solution(s));
-        System.out.println(Solution.solution2(s));
+        System.out.println(solution(s));
+        System.out.println(solution2(s));
         System.out.println(Stream.of(s.split(""))
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.joining()));
     }
 
-    private static class Solution {
-        private static String solution(String s) {
-            char[] charS = s.toCharArray();
-            Arrays.sort(charS);
-            for (int i = 0; i < charS.length / 2; i++) {
-                char temp = charS[i];
-                charS[i] = charS[charS.length - 1 - i];
-                charS[charS.length - 1 - i] = temp;
-            }
-            return String.valueOf(charS);
+    private static String solution(String s) {
+        char[] charS = s.toCharArray();
+        Arrays.sort(charS);
+        for (int i = 0; i < charS.length / 2; i++) {
+            char temp = charS[i];
+            charS[i] = charS[charS.length - 1 - i];
+            charS[charS.length - 1 - i] = temp;
         }
+        return String.valueOf(charS);
+    }
 
-        private static String solution2(String s) {
-            char[] charS = s.toCharArray();
-            Arrays.sort(charS);
-            return new StringBuilder(String.valueOf(charS)).reverse().toString();
-        }
+    private static String solution2(String s) {
+        char[] charS = s.toCharArray();
+        Arrays.sort(charS);
+        return new StringBuilder(String.valueOf(charS)).reverse().toString();
     }
 }

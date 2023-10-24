@@ -14,33 +14,30 @@ package AlgoStudy;
 public class Q26 {
     public static void main(String[] args) {
         String s = "a234";
-        System.out.println(Solution.solution(s));
-        System.out.println(Solution.solution2(s));
-        System.out.println(Solution.solution3(s));
+        System.out.println(solution(s));
+        System.out.println(solution2(s));
+        System.out.println(solution3(s));
     }
 
-    private static class Solution {
-        private static boolean solution(String s) {
-            char[] charS = s.toCharArray();
-            if (s.length() == 4 || s.length() == 6) {
-                for (char c : charS) {
-                    if (c < 48 || c > 57) {
-                        return false;
-                    }
+    private static boolean solution(String s) {
+        char[] charS = s.toCharArray();
+        if (s.length() == 4 || s.length() == 6) {
+            for (char c : charS) {
+                if (c < 48 || c > 57) {
+                    return false;
                 }
-            } else {
-                return false;
             }
-            return true;
+        } else {
+            return false;
         }
+        return true;
+    }
 
-        private static boolean solution2(String s) {
-            return (s.length() == 4 || s.length() == 6) && s.chars().allMatch(Character::isDigit);
-        }
+    private static boolean solution2(String s) {
+        return (s.length() == 4 || s.length() == 6) && s.chars().allMatch(Character::isDigit);
+    }
 
-        private static boolean solution3(String s) {
-            return s.matches("[0-9]{4}|[0-9]{6}");
-        }
-
+    private static boolean solution3(String s) {
+        return s.matches("[0-9]{4}|[0-9]{6}");
     }
 }

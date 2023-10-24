@@ -17,17 +17,15 @@ public class Q22 {
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4};
         int[] b = {-3, -1, 0, 2};
-        System.out.println(Solution.solution(a, b));
+        System.out.println(solution(a, b));
         System.out.println(IntStream.range(0, a.length).map(i -> a[i] * b[i]).sum());
     }
 
-    private static class Solution {
-        private static int solution(int[] a, int[] b) {
-            int result = 0;
-            for (int i = 0; i < a.length; i++) {
-                result += a[i] * b[i];
-            }
-            return result;
+    private static int solution(int[] a, int[] b) {
+        int result = 0;
+        for (int i = 0; i < a.length; i++) {
+            result += a[i] * b[i];
         }
+        return result;
     }
 }

@@ -1,4 +1,4 @@
-package AlgoMarathon;
+package AlgoChallange;
 
 // 푸드 파이트 대회
 // 문제 설명

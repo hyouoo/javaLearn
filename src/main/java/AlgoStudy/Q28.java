@@ -29,17 +29,14 @@ public class Q28 {
             }
             System.out.println();
         }
-        System.out.println();
-        Solution.solution(a, b);
+        solution(a, b);
     }
 
-    private static class Solution {
-        private static void solution(int a, int b) {
-            StringBuilder str = new StringBuilder();
-            str.append("*".repeat(a));
-            for (int i = 0; i < b; i++) {
-                System.out.println(str);
-            }
+    private static void solution(int a, int b) {
+        StringBuilder str = new StringBuilder();
+        str.append("*".repeat(a));
+        for (int i = 0; i < b; i++) {
+            System.out.println(str);
         }
     }
 }
