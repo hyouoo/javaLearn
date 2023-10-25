@@ -14,8 +14,8 @@ public class Q55 {
     }
 
     // String의 각 char를 for문 루프 돌면서 첫 번째 글자를 tmp에 저장하고 카운트
-    // tmp와 다른 글자를 카운트, 카운트가 같으면 결과 카운트 +1 -> tmp에 다음 char할당(how?)
-    //
+    // tmp와 다른 글자를 카운트, 카운트가 같으면 결과 카운트 +1 -> tmp에 다음 char할당
+    // index가 마지막 값일 때 결과 카운트 +1하고 break
     private static int solution(String s) {
         int baseCount = 0;
         int otherCount = 0;
