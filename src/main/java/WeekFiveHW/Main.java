@@ -42,41 +42,37 @@ public class Main {
         System.out.println();
         // 가격이 가장 비싼 책 가격 조회
 
-//        double maxPrice = bookList.stream()
-//                .forEach((Book book) -> book.getPrice());
-
-//        System.out.println("책 목록 중 가장 비싼 금액: " + maxPrice);
-//        System.out.println();
+        double maxPrice = bookList.stream()
+                .mapToDouble(Book::getPrice)
+                .max().orElse(0);
+        System.out.println("책 목록 중 가장 비싼 금액: " + maxPrice);
+        System.out.println();
         // 카테고리가 IT인 책들의 가격 합 조회
-//        double sum = bookList.stream()
+        double sum = bookList.stream()
+                .filter(book -> book.getCategory().equals("IT"))
+                .mapToDouble(Book::getPrice).sum();
+        System.out.println("카테고리 IT 책들의 가격 합: " + sum);
+        System.out.println();
+        // IT 책 할인 이벤트!
+        List<Book> discountedBookList = bookList.stream()
+                .filter(book -> book.getCategory().equals("IT"))
+                .peek(book -> book.setPrice(book.getPrice() * 0.6)).toList();
 
-//        System.out.println("카테고리 IT 책들의 가격 합: " + sum);
-//        System.out.println();
-//        // IT 책 할인 이벤트!
-//        List<Book> discountedBookList = bookList.stream()
-//                .filter((Book book) -> book.getCategory().equals("IT"))
-//                .map((Book book) -> {
-//                    book.setPrice(price*0.6)
-//                })
-//                .forEach((Book book) -> book.setPrice());
-
-//        for (Book book : discountedBookList) {
-//            System.out.println("할인된 책 제목: " + book.getBookName());
-//            System.out.println("할인된 책 가격: " + book.getPrice() + "\n");
-//        }
-
+        for (Book book : discountedBookList) {
+            System.out.println("할인된 책 제목: " + book.getBookName());
+            System.out.println("할인된 책 가격: " + book.getPrice() + "\n");
+        }
     }
 }
-
-class Book {
+ class Book {
     // 분류번호
-    private Long id;
+    private final Long id;
     // 책 이름
-    private String bookName;
+    private final String bookName;
     // 작가 이름
-    private String author;
+    private final String author;
     // 카테고리
-    private String category;
+    private final String category;
     // 가격
     private double price;
 
@@ -103,4 +99,12 @@ class Book {
     public void setPrice(double price) {
         this.price = price;
     }
-}
+
+     public Long getId() {
+         return id;
+     }
+
+     public String getAuthor() {
+         return author;
+     }
+ }
