@@ -64,7 +64,7 @@ public class Main {
         }
     }
 }
- class Book {
+class Book {
     // 분류번호
     private final Long id;
     // 책 이름
@@ -100,11 +100,11 @@ public class Main {
         this.price = price;
     }
 
-     public Long getId() {
-         return id;
-     }
+    public Long getId() {
+        return id;
+    }
 
-     public String getAuthor() {
-         return author;
-     }
- }
+    public String getAuthor() {
+        return author;
+    }
+}

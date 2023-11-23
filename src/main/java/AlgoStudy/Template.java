@@ -2,12 +2,12 @@ package AlgoStudy;
 
 public class Template {
     public static void main(String[] args) {
-        int n = 1;
-        System.out.println(solution(n));
+        String s = "a234";
+        System.out.println(solution(s));
     }
 
-    private static int solution(int n) {
+    private static String solution(String s) {
 
-        return n;
+        return s;
     }
 }
