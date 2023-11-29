@@ -18,7 +18,8 @@ public class Q79 {
 
     public static int[] solution(int brown, int yellow) {
         int valid = (brown - 4) / 2;
-        for (int i = yellow / 2 == 0 ? 1 : yellow / 2; i > 0; i--) {
+        int sq = (int) Math.sqrt(yellow);
+        for (int i = sq; i > 0; i--) {
             int j = yellow / i;
             if (i + j == valid) {
                 return new int[]{j + 2, i + 2};
