@@ -8,6 +8,8 @@ package codekata;
 //        4	[1, 3, 2, 5, 4, 5, 2, 3]	2
 //        2	[1, 1, 1, 1, 2, 2, 2, 3]	1
 
+import java.util.*;
+
 public class Q83 {
     public static void main(String[] args) {
         int k = 6;
@@ -16,7 +18,22 @@ public class Q83 {
 
     }
     private static int solution(int k, int[] tangerine) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int n : tangerine) {
+            map.put(n, map.get(n) == null ? 1 : map.get(n) + 1);
+        }
+        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(map.entrySet());
+        entryList.sort((e1, e2) -> e2.getValue() - e1.getValue());
 
-        return k;
+        int count = 0, numOfSize = 1;
+        for (Map.Entry<Integer, Integer> entry : entryList) {
+            count += entry.getValue();
+            if (count < k) {
+                numOfSize++;
+            } else {
+                return numOfSize;
+            }
+        }
+        return 0;
     }
 }
