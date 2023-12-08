@@ -15,7 +15,26 @@ public class Q88 {
         System.out.println(Arrays.toString(solution(arr1, arr2)));
     }
 
+    /*
+    00 = 00*00 + 01*10 + 02*20
+    01 = 00*01 + 01*11 + 02*21
+    02 = 00*02 + 01*12 + 02*22
+
+    10 = 10*00 + 11*10 + 12*20
+
+    */
     private static int[][] solution(int[][] arr1, int[][] arr2) {
-        return arr1;
+        int rows = arr1.length;
+        int cols = arr2[0].length;
+        int[][] result = new int[rows][cols];
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                for (int i = 0; i < arr2.length; i++) {
+                    result[r][c] += arr1[r][i] * arr2[i][c];
+                }
+            }
+        }
+        return result;
     }
 }

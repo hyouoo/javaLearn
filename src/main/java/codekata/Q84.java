@@ -1,7 +1,6 @@
 package codekata;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
 // 괄호 회전하기
 // https://school.programmers.co.kr/learn/courses/30/lessons/76502
@@ -18,12 +17,27 @@ public class Q84 {
     }
 
     private static int solution(String s) {
-        Map<String, String> map = new HashMap<>();
-        map.put("{", "}");
-        map.put("[", "]");
-        map.put("(", ")");
-        StringBuilder sb = new StringBuilder(s);
+        Stack<Character> stack = new Stack<>();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j < s.length(); j++) {
+                char c = s.charAt((i + j) % s.length());
+                if (stack.isEmpty() || !isValidPair(stack.peek(), c)) {
+                    stack.push(c);
+                } else {
+                    stack.pop();
+                }
+            }
+            if (stack.isEmpty()) {
+                count++;
+            } else {
+                stack.clear();
+            }
+        }
+        return count;
+    }
 
-        return 0;
+    private static boolean isValidPair(Character peek, char c) {
+        return  (peek == '(' && c == ')' || peek == '{' && c == '}' || peek == '[' && c == ']');
     }
 }
