@@ -1,4 +1,4 @@
-package codekata2;
+package codekatalv6;
 
 import java.util.ArrayList;
 import java.util.Collections;
